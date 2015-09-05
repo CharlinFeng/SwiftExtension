@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         imageV.image = img
         
         view.addSubview(imageV)
+        
+        self.hideBackBtn()
     }
 
 

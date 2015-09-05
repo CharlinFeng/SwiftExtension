@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8969E4661B9AB5ED00EED1E0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969E4651B9AB5ED00EED1E0 /* UIViewController.swift */; };
 		89EBAAA91B9A7B3900AEC496 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAAA81B9A7B3900AEC496 /* AppDelegate.swift */; };
 		89EBAAAB1B9A7B3900AEC496 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAAAA1B9A7B3900AEC496 /* ViewController.swift */; };
 		89EBAAAE1B9A7B3900AEC496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EBAAAC1B9A7B3900AEC496 /* Main.storyboard */; };
 		89EBAAB01B9A7B3900AEC496 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EBAAAF1B9A7B3900AEC496 /* Images.xcassets */; };
 		89EBAAB31B9A7B3900AEC496 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EBAAB11B9A7B3900AEC496 /* LaunchScreen.xib */; };
 		89EBAABF1B9A7B3900AEC496 /* SwiftExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAABE1B9A7B3900AEC496 /* SwiftExtensionTests.swift */; };
-		89EBAAEF1B9A7BCC00AEC496 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAACA1B9A7BCC00AEC496 /* UIViewController.swift */; };
 		89EBAAF01B9A7BCC00AEC496 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAACC1B9A7BCC00AEC496 /* CoreGraphics.swift */; };
 		89EBAAF11B9A7BCC00AEC496 /* AnyObject+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAACF1B9A7BCC00AEC496 /* AnyObject+Extend.swift */; };
 		89EBAAF21B9A7BCC00AEC496 /* Array+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAAD11B9A7BCC00AEC496 /* Array+Extend.swift */; };
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8969E4651B9AB5ED00EED1E0 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		89EBAAA31B9A7B3900AEC496 /* SwiftExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EBAAA71B9A7B3900AEC496 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89EBAAA81B9A7B3900AEC496 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		89EBAAB81B9A7B3900AEC496 /* SwiftExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftExtensionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EBAABD1B9A7B3900AEC496 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89EBAABE1B9A7B3900AEC496 /* SwiftExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensionTests.swift; sourceTree = "<group>"; };
-		89EBAACA1B9A7BCC00AEC496 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		89EBAACC1B9A7BCC00AEC496 /* CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
 		89EBAACF1B9A7BCC00AEC496 /* AnyObject+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnyObject+Extend.swift"; sourceTree = "<group>"; };
 		89EBAAD11B9A7BCC00AEC496 /* Array+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extend.swift"; sourceTree = "<group>"; };
@@ -97,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8969E4641B9AB5ED00EED1E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8969E4651B9AB5ED00EED1E0 /* UIViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		89EBAA9A1B9A7B3900AEC496 = {
 			isa = PBXGroup;
 			children = (
@@ -157,21 +165,12 @@
 		89EBAAC81B9A7BCC00AEC496 /* SwiftExtension */ = {
 			isa = PBXGroup;
 			children = (
-				89EBAAC91B9A7BCC00AEC496 /* Controller */,
 				89EBAACB1B9A7BCC00AEC496 /* CoreGraphics */,
 				89EBAACD1B9A7BCC00AEC496 /* Foundation */,
 				89EBAADC1B9A7BCC00AEC496 /* Module */,
 				89EBAAE01B9A7BCC00AEC496 /* UIKit */,
 			);
 			path = SwiftExtension;
-			sourceTree = "<group>";
-		};
-		89EBAAC91B9A7BCC00AEC496 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				89EBAACA1B9A7BCC00AEC496 /* UIViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		89EBAACB1B9A7BCC00AEC496 /* CoreGraphics */ = {
@@ -272,6 +271,7 @@
 		89EBAAE01B9A7BCC00AEC496 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				8969E4641B9AB5ED00EED1E0 /* Controller */,
 				89EBAB091B9A7E7800AEC496 /* UIButton */,
 				89EBAAE11B9A7BCC00AEC496 /* UIColor */,
 				89EBAAE31B9A7BCC00AEC496 /* UIDevice */,
@@ -473,7 +473,7 @@
 				89EBAAFC1B9A7BCC00AEC496 /* UIScreen.swift in Sources */,
 				89EBAAF51B9A7BCC00AEC496 /* Foundation+Extend.swift in Sources */,
 				89EBAAA91B9A7B3900AEC496 /* AppDelegate.swift in Sources */,
-				89EBAAEF1B9A7BCC00AEC496 /* UIViewController.swift in Sources */,
+				8969E4661B9AB5ED00EED1E0 /* UIViewController.swift in Sources */,
 				89EBAAF91B9A7BCC00AEC496 /* UIColor+Extend.swift in Sources */,
 				89EBAAFE1B9A7BCC00AEC496 /* UITextField+Extend.swift in Sources */,
 				89EBAAF01B9A7BCC00AEC496 /* CoreGraphics.swift in Sources */,
@@ -679,6 +679,7 @@
 				89EBAAC41B9A7B3900AEC496 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89EBAAC51B9A7B3900AEC496 /* Build configuration list for PBXNativeTarget "SwiftExtensionTests" */ = {
 			isa = XCConfigurationList;
@@ -687,6 +688,7 @@
 				89EBAAC71B9A7B3900AEC496 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

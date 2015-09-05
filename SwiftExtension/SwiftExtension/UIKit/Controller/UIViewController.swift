@@ -20,6 +20,12 @@ extension UIViewController {
         return vc
     }
     
+    /** 隐藏返回按钮 */
+    func hideBackBtn(){
+        
+        let item = UIBarButtonItem(customView: UIView())
+        self.navigationItem.leftBarButtonItem=item
+    }
     
     
 }

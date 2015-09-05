@@ -50,9 +50,6 @@ extension UIView{
         }
     }
     
-    
-    
-    
     /**  添加边框  */
     func border(#width: CGFloat, color: UIColor){
         
@@ -64,5 +61,6 @@ extension UIView{
     class func viewInitWithNib() -> UIView{
         return NSBundle.mainBundle().loadNibNamed(stringFromClass(self)!, owner: nil, options: nil).first as! UIView
     }
+
     
 }

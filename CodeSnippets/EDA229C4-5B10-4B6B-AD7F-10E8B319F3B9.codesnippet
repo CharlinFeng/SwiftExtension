@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ForIn</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        /** 数组遍历 */
+        for (index: Int, &lt;#obj#&gt;: &lt;#Type#&gt;) in enumerate(&lt;#array#&gt;){
+            &lt;#code#&gt;
+        }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EDA229C4-5B10-4B6B-AD7F-10E8B319F3B9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>ForIn</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>ForIn</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

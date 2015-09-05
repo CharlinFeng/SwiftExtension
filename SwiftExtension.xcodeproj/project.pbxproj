@@ -32,6 +32,7 @@
 		89EBAAFF1B9A7BCC00AEC496 /* UIView+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAAEE1B9A7BCC00AEC496 /* UIView+Extend.swift */; };
 		89EBAB051B9A7C8D00AEC496 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAB011B9A7C8D00AEC496 /* AccessoryView.swift */; };
 		89EBAB061B9A7C8D00AEC496 /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EBAB021B9A7C8D00AEC496 /* AccessoryView.xib */; };
+		89EBAB0B1B9A7EA400AEC496 /* UIButton+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBAB0A1B9A7EA400AEC496 /* UIButton+Extend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		89EBAAEE1B9A7BCC00AEC496 /* UIView+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extend.swift"; sourceTree = "<group>"; };
 		89EBAB011B9A7C8D00AEC496 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		89EBAB021B9A7C8D00AEC496 /* AccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryView.xib; sourceTree = "<group>"; };
+		89EBAB0A1B9A7EA400AEC496 /* UIButton+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extend.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 		89EBAAE01B9A7BCC00AEC496 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				89EBAB091B9A7E7800AEC496 /* UIButton */,
 				89EBAAE11B9A7BCC00AEC496 /* UIColor */,
 				89EBAAE31B9A7BCC00AEC496 /* UIDevice */,
 				89EBAAE51B9A7BCC00AEC496 /* UIImage */,
@@ -345,6 +348,14 @@
 				89EBAB021B9A7C8D00AEC496 /* AccessoryView.xib */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		89EBAB091B9A7E7800AEC496 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				89EBAB0A1B9A7EA400AEC496 /* UIButton+Extend.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +468,7 @@
 				89EBAAFF1B9A7BCC00AEC496 /* UIView+Extend.swift in Sources */,
 				89EBAAFB1B9A7BCC00AEC496 /* UIImage+Extend.swift in Sources */,
 				89EBAAF41B9A7BCC00AEC496 /* Dictionary+Extend.swift in Sources */,
+				89EBAB0B1B9A7EA400AEC496 /* UIButton+Extend.swift in Sources */,
 				89EBAAF61B9A7BCC00AEC496 /* String+Extend.swift in Sources */,
 				89EBAAFC1B9A7BCC00AEC496 /* UIScreen.swift in Sources */,
 				89EBAAF51B9A7BCC00AEC496 /* Foundation+Extend.swift in Sources */,

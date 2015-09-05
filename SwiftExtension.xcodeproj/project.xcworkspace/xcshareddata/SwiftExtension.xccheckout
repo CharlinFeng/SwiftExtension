@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AFD6DD73-B25A-432F-8B73-9EF960C36E2A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>SwiftExtension</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4B36D6E2AC409C022C00D3F6C28215404F8285EA</key>
 		<string>https://github.com/CharlinFeng/SwiftExtension.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SwiftExtension.xcodeproj/project.xcworkspace</string>
+	<string>SwiftExtension.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4B36D6E2AC409C022C00D3F6C28215404F8285EA</key>

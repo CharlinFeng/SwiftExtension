@@ -8,14 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var tf: UITextField!
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tf.delegate = self
+        
+        
     }
     
-
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+       return textField.formatMobileNO(string)
+    }
     
 
 }

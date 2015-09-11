@@ -56,6 +56,41 @@ extension UITextField{
         av.doneBtnActionClosure={self.endEditing(true)}
         self.inputAccessoryView = av
     }
+    
+    
+    /** 手机号码格式化 */
+    func formatMobileNO(string: String) -> Bool{
+        
+        let str =  self.text
+        
+        let length = str.length
+        
+        if equal(string, "") {
+            
+            if ((length - 2) % 5 == 0) {
+                self.text = (str as NSString).substringToIndex(length - 1)
+            }
+            
+            return true;
+            
+        }else {
+            
+            if length==0{return true}
+            
+            if length >= 13 {return false}
+            
+            var count = 4
+            var leftCount = -1
+            
+            if length > 5 {count=5; leftCount=count-2}
+            
+            if ((length - leftCount) % count == 0) {
+                self.text = "\(str) "
+            }
+        }
+        
+        return true
+    }
 }
 
 extension UISearchBar{

@@ -51,7 +51,7 @@ extension UIView{
     }
     
     /**  添加边框  */
-    func border(#width: CGFloat, color: UIColor){
+    func border(width width: CGFloat, color: UIColor){
         
         self.layer.borderWidth = width
         

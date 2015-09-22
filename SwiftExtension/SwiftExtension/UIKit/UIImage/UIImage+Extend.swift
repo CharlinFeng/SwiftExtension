@@ -22,7 +22,7 @@ extension UIImage {
         
         UIRectFill(bounds)
         
-        self.drawInRect(bounds, blendMode: kCGBlendModeDestinationIn, alpha: 1.0)
+        self.drawInRect(bounds, blendMode: CGBlendMode.DestinationIn, alpha: 1.0)
         
         let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         

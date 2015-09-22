@@ -11,7 +11,7 @@ import Foundation
 extension Array{
     
     /** Array 转 ArraySlice */
-    func slice(openOrClosedInterval: Range<Int>) -> ArraySlice<T>{
+    func slice(openOrClosedInterval: Range<Int>) -> ArraySlice<Element>{
         
         var range = openOrClosedInterval
         
@@ -27,7 +27,7 @@ extension Array{
     
     
     /** 仿OC遍历 */
-    func enumerate(itemClosure: (index: Int , value: T)->Void){
+    func enumerate(itemClosure: (index: Int , value: Element)->Void){
         
         for (var i=0;i<self.count;i++){
             

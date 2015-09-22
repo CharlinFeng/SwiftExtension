@@ -12,7 +12,7 @@ import UIKit
 extension String{
 
     /** 获取字符串长度 */
-    var length: Int {return count(self)}
+    var length: Int {return self.characters.count}
     
     
     /** 截取字符串 */
@@ -22,7 +22,7 @@ extension String{
 
         if(index >= self.length) {return nil}
         
-        var indexForStringDotIndex = advance(self.startIndex, index)
+        let indexForStringDotIndex = self.startIndex.advancedBy(index)
 
         return self.substringFromIndex(indexForStringDotIndex)
     }
@@ -34,8 +34,8 @@ extension String{
         
         let zeroIndexForStringDotIndex = self.startIndex
         
-        let start = advance(zeroIndexForStringDotIndex, range.startIndex)
-        let end = advance(zeroIndexForStringDotIndex, range.endIndex)
+        let start = zeroIndexForStringDotIndex.advancedBy(range.startIndex)
+        let end = zeroIndexForStringDotIndex.advancedBy(range.endIndex)
         
         let rangeForStringDotIndex = Range(start: start, end: end)
         
@@ -46,9 +46,9 @@ extension String{
     var isNotEmpty: Bool{return !self.isEmpty}
 
     /** 时间戳转格式化的时间字符串 */
-    func timestamp(#format: String) -> String {
+    func timestamp(format format: String) -> String {
         
-        let date = NSDate(timeIntervalSince1970: Double(self.toInt()!))
+        let date = NSDate(timeIntervalSince1970: Double(Int(self)!))
         
         let formatter = NSDateFormatter()
         

@@ -57,7 +57,7 @@ extension NSObject {
 
 func stringFromClass(cls: AnyClass)->String?{
     
-    var string = NSStringFromClass(cls.self).componentsSeparatedByString(".").last
+    let string = NSStringFromClass(cls.self).componentsSeparatedByString(".").last
     
     return string
 }
@@ -69,7 +69,7 @@ func stringFromClass(cls: AnyClass)->String?{
 /** id转Dictionary? */
 func objectConvertToDictionay(obj: AnyObject!)->[NSObject: AnyObject]?{
     
-    if obj == nil {println("注意：OC原字典为空"); return nil}
+    if obj == nil {print("注意：OC原字典为空"); return nil}
     
     return obj as? [NSObject: AnyObject]! as Dictionary?
 }
@@ -77,7 +77,7 @@ func objectConvertToDictionay(obj: AnyObject!)->[NSObject: AnyObject]?{
 /** id转Array? */
 func objectConvertToArray(obj: AnyObject!)->[AnyObject]?{
     
-    if obj == nil {println("注意：OC原数组为空"); return nil}
+    if obj == nil {print("注意：OC原数组为空"); return nil}
     
     return obj as? [AnyObject]! as Array?
 }
@@ -87,7 +87,6 @@ func objectConvertToArray(obj: AnyObject!)->[AnyObject]?{
 /** 扩展可计算类型的混合运算 */
 protocol CanCalProtocol{}
 extension Int: CanCalProtocol{}
-extension NSInteger: CanCalProtocol{}
 extension Float: CanCalProtocol{}
 extension CGFloat: CanCalProtocol{}
 extension Double: CanCalProtocol{}

@@ -38,8 +38,8 @@ extension UITextField{
         let models = modelsClosure()
     
         /** 数组遍历 */
-        for (index: Int, model: TFCheckModel) in enumerate(models){
-            if model.textField.text.isEmpty {errorMsg = model.desc; break}
+        for (_, model): (Int, TFCheckModel) in models.enumerate(){
+            if model.textField.text!.isEmpty {errorMsg = model.desc; break}
         }
         
         if errorMsg.isNotEmpty {errorMsg+="为空"}
@@ -48,7 +48,7 @@ extension UITextField{
     }
     
     /** 添加一个键盘 */
-    func addKeyBoardTool(#explain: String){
+    func addKeyBoardTool(explain explain: String){
         
         let av = AccessoryView.instance()
         av.hideCancelBtn = true
@@ -62,13 +62,13 @@ extension UITextField{
     func formatMobileNO(string: String) -> Bool{
         
         let str =  self.text
+
+        let length = str!.length
         
-        let length = str.length
-        
-        if equal(string, "") {
+        if string.characters.elementsEqual("".characters) {
             
             if ((length - 2) % 5 == 0) {
-                self.text = (str as NSString).substringToIndex(length - 1)
+                self.text = (str! as NSString).substringToIndex(length - 1)
             }
             
             return true;
@@ -95,7 +95,7 @@ extension UITextField{
 
 extension UISearchBar{
     /** 添加一个键盘 */
-    func addKeyBoardTool(#explain: String){
+    func addKeyBoardTool(explain explain: String){
         
         let av = AccessoryView.instance()
         av.hideCancelBtn = true

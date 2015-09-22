@@ -32,7 +32,7 @@ func iPhone6Plus_414_736_Portait() -> Bool{
 }
 
 /** 通用方法 */
-func isDevice(#width: CGFloat, #height: CGFloat) -> Bool{
+func isDevice(width width: CGFloat, height: CGFloat) -> Bool{
     return Screen.width == width && Screen.height == height
 }
 

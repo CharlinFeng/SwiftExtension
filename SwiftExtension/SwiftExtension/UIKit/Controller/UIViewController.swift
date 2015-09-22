@@ -13,9 +13,9 @@ extension UIViewController {
 
     class func controllerInitWithNib()->UIViewController{
     
-        var str = stringFromClass(self)
+        let str = stringFromClass(self)
         
-        var vc = self(nibName: str, bundle: nil)
+        let vc = self.init(nibName: str, bundle: nil)
     
         return vc
     }

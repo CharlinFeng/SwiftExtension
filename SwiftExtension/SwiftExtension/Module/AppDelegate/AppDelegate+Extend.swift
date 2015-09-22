@@ -15,7 +15,7 @@ extension AppDelegate{
     /** 扩展AppDelegate的window初始化 */
     func appDelegatePrepare(){
         
-        var window = UIWindow(frame: Screen.bounds)
+        let window = UIWindow(frame: Screen.bounds)
         
         //设置窗口颜色
         window.backgroundColor = UIColor.whiteColor()

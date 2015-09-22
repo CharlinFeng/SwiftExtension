@@ -11,7 +11,7 @@ import Foundation
 extension ArraySlice{
     
     /** ArraySlice 转 Array */
-    var array: Array<T>{
+    var array: Array<Element>{
         return Array(self)
     }
     

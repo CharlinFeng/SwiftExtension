@@ -20,6 +20,23 @@ extension UIButton{
     }
     
     
+    var titleForNormal: String! {
+        
+        set{setTitle(newValue, forState: UIControlState.Normal)}
+        get{return titleForState(UIControlState.Normal)}
+    }
+    
+    var titleForHighlighted: String! {
+        
+        set{setTitle(newValue, forState: UIControlState.Highlighted)}
+        get{return titleForState(UIControlState.Highlighted)}
+    }
+    
+    var titleForDisabled: String! {
+        
+        set{setTitle(newValue, forState: UIControlState.Disabled)}
+        get{return titleForState(UIControlState.Disabled)}
+    }
     
     
     

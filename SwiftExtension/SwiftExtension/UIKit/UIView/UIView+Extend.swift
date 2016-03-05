@@ -62,5 +62,9 @@ extension UIView{
         return NSBundle.mainBundle().loadNibNamed(stringFromClass(self)!, owner: nil, options: nil).first as! UIView
     }
 
+    func radius(r: CGFloat){
+        self.layer.cornerRadius = r;
+        self.layer.masksToBounds = true
+    }
     
 }

@@ -14,6 +14,12 @@ import UIKit
 /** textField检查 */
 extension UITextField{
     
+    func placeHolder(ph: String!, color: UIColor!){
+    
+        attributedPlaceholder = NSAttributedString(string: ph, attributes: [NSForegroundColorAttributeName: color])
+    }
+    
+    
     class TFCheckModel{
         
         let textField: UITextField
@@ -85,11 +91,16 @@ extension UITextField{
             if length > 5 {count=5; leftCount=count-2}
             
             if ((length - leftCount) % count == 0) {
-                self.text = "\(str) "
+                self.text = "\(str!) "
             }
         }
         
         return true
+    }
+    
+    func setPlaceHolderString(str: String!) {
+        var ph = str ?? self.placeholder
+        attributedPlaceholder = NSAttributedString(string: ph!, attributes: [NSForegroundColorAttributeName: UIColor.lightTextColor()])
     }
 }
 

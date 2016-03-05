@@ -11,7 +11,9 @@
 
 $(SRCROOT)： 工程路径
 $(TARGET_NAME)： 工程内层文件夹
+ 
 
+$(SRCROOT)/$(TARGET_NAME)/OC.h
 
  
  
@@ -48,7 +50,7 @@ $(TARGET_NAME)： 工程内层文件夹
  重复以上最后两步即可。
  
  
- 
+ 代码块管理：~/Library/Developer/Xcode/UserData/CodeSnippets
  
  
  

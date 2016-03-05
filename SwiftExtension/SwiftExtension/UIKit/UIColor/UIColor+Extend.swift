@@ -36,3 +36,9 @@ func hexColor(hex:String) -> UIColor {
         alpha: CGFloat(1.0)
     )
 }
+
+
+let WhiteColor = UIColor.whiteColor()
+let BlackColor = UIColor.blackColor()
+let ClearColor = UIColor.blackColor()
+let RedColor = UIColor.blackColor()

@@ -9,50 +9,6 @@
 import Foundation
 import UIKit
 
-/** 宏定义 */
-
-/** BOOL值 */
-let YES = true
-let NO = false
-
-/** 零区间 */
-let RangeIntervalZero = 0..<0
-
-
-/**  方向定义  */
-enum Direction {
-    
-    //上
-    case Top
-    
-    //左
-    case Left
-    
-    //下
-    case Bottom
-    
-    //右
-    case Right
-}
-
-/**  对Int扩展  */
-extension Int{
-    
-    var toCGFloat: CGFloat { return CGFloat(self) }
-}
-
-/**  对CGFlout扩展  */
-extension CGFloat {
-    var toInt: Int { return Int(self) }
-}
-
-
-extension NSObject {
-    
-    var classNameAsString: String{
-        return NSStringFromClass(self.classForCoder).componentsSeparatedByString(".").last!
-    }
-}
 
 
 func stringFromClass(cls: AnyClass)->String?{
@@ -64,62 +20,68 @@ func stringFromClass(cls: AnyClass)->String?{
 
 
 
-/** OC与Swift字典与数组互转 */
+/** 结果单位是KB */
+func getCacheSize_KB(sizeClosure:((size: Float)->Void)!) {
 
-/** id转Dictionary? */
-func objectConvertToDictionay(obj: AnyObject!)->[NSObject: AnyObject]?{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
     
-    if obj == nil {print("注意：OC原字典为空"); return nil}
-    
-    return obj as? [NSObject: AnyObject]! as Dictionary?
+        // 取出cache文件夹路径
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+
+        // 取出文件夹下所有文件数组
+        let files = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        // 用于统计文件夹内所有文件大小
+        var s = Int();
+        
+        // 快速枚举取出所有文件名
+        for p in files!{
+            
+            // 把文件名拼接到路径中
+            let path = cachePath!+"/"+p
+            // 取出文件属性
+            let floder = try! NSFileManager.defaultManager().attributesOfItemAtPath(path)
+            // 用元组取出文件大小属性
+            for (abc,bcd) in floder {
+                // 只去出文件大小进行拼接
+                if abc == NSFileSize{
+                    s += bcd.integerValue
+                }
+            }
+        }
+        
+        let size_KB = Float(s/1024)
+        
+        sizeClosure?(size: size_KB)
+        
+    });
 }
 
-/** id转Array? */
-func objectConvertToArray(obj: AnyObject!)->[AnyObject]?{
-    
-    if obj == nil {print("注意：OC原数组为空"); return nil}
-    
-    return obj as? [AnyObject]! as Array?
+func removeCaches(completeClosure:(Void->Void)!){
+
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+        
+        // 取出文件夹下所有文件数组
+        let files = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        
+        // 点击确定时开始删除
+        for p in files!{
+            // 拼接路径
+            let path = cachePath!+"/"+p
+            // 判断是否可以删除
+            if(NSFileManager.defaultManager().fileExistsAtPath(path)){
+                // 删除
+                try? NSFileManager.defaultManager().removeItemAtPath(path)
+            }
+        }
+        
+        completeClosure?()
+    });
 }
 
+/** 当前时间 */
+func NOW_TIME() -> NSTimeInterval{return NSDate().timeIntervalSince1970}
 
 
-/** 扩展可计算类型的混合运算 */
-protocol CanCalProtocol{}
-extension Int: CanCalProtocol{}
-extension Float: CanCalProtocol{}
-extension CGFloat: CanCalProtocol{}
-extension Double: CanCalProtocol{}
-
-/** + */
-func +(left:CanCalProtocol, right:CanCalProtocol) -> Double{
-    return CanCalProtocol2Double(left) + CanCalProtocol2Double(right)
-}
-
-/** - */
-func -(left:CanCalProtocol, right:CanCalProtocol) -> Double{
-    return CanCalProtocol2Double(left) - CanCalProtocol2Double(right)
-}
-
-/** * */
-func *(left:CanCalProtocol, right:CanCalProtocol) -> Double{
-    return CanCalProtocol2Double(left) * CanCalProtocol2Double(right)
-}
-
-/** / */
-func /(left:CanCalProtocol, right:CanCalProtocol) -> Double{
-    return CanCalProtocol2Double(left) / CanCalProtocol2Double(right)
-}
-
-
-/** CanCalProtocol高精度 */
-func CanCalProtocol2Double(num: CanCalProtocol) -> Double{
-    
-    if num is Int {return Double(num as! Int)}
-    if num is NSInteger {return Double(num as! NSInteger)}
-    if num is Float {return Double(num as! Float)}
-    if num is CGFloat {return Double(num as! CGFloat)}
-    if num is Double {return num as! Double}
-    
-    return 0
-}

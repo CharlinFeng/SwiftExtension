@@ -27,5 +27,15 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem=item
     }
     
+    /** 添加dismiss按钮 */
+    func addDismissBtn(){
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SwiftExtension.bundle/delete"), style: UIBarButtonItemStyle.Plain, target: self, action: "dismissAction")
+    }
+    
+    func dismissAction(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
 }

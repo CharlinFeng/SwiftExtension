@@ -67,4 +67,8 @@ extension UIView{
         self.layer.masksToBounds = true
     }
     
+    func debug(){
+        border(width: 2, color: UIColor.redColor())
+    }
+    
 }

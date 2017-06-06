@@ -61,7 +61,7 @@ func iOS9() -> Bool{
 }
 
 extension UIDevice{
-    static var versionValue: Float {return (UIDevice.currentDevice().systemVersion as NSString).floatValue}
+    static var versionValue: Float {return (UIDevice.current.systemVersion as NSString).floatValue}
 }
 
 

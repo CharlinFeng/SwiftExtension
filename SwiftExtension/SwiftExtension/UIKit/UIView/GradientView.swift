@@ -14,7 +14,7 @@ class GradientView: UIView {
     var endColor: UIColor?
     var p: CGFloat?
     
-    init(frame: CGRect, startColor: UIColor?, endColor: UIColor?, p: CGFloat?){super.init(frame: frame); self.startColor = startColor; self.endColor = endColor; self.p = p;backgroundColor = UIColor.clearColor()}
+    init(frame: CGRect, startColor: UIColor?, endColor: UIColor?, p: CGFloat?){super.init(frame: frame); self.startColor = startColor; self.endColor = endColor; self.p = p;backgroundColor = UIColor.clear}
 
     required init?(coder aDecoder: NSCoder) {super.init(coder: aDecoder)}
 }
@@ -29,12 +29,12 @@ extension GradientView{
         
         super.awakeFromNib()
         
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        super.drawRect(rect)
+        super.draw(rect)
         
         if startColor == nil || endColor == nil || p == nil {return}
         
@@ -42,15 +42,17 @@ extension GradientView{
         
         let currentContext = UIGraphicsGetCurrentContext()
         
-        CGContextSaveGState(currentContext)
+        currentContext!.saveGState()
 
-        let colors: CFArray = [startColor!.CGColor, endColor!.CGColor]
+        let colors = [startColor!.cgColor, endColor!.cgColor]
         
-        let gradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), colors, nil)
+        let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: nil)
         
-        CGContextDrawRadialGradient(currentContext, gradient, CGPointMake(w/2, w/2), 0, CGPointMake(w/2, w/2), w * p!, CGGradientDrawingOptions.DrawsAfterEndLocation)
+        
+        
+        currentContext!.drawRadialGradient(gradient!, startCenter: CGPoint(x: w/2, y: w/2), startRadius: 0, endCenter: CGPoint(x: w/2, y: w/2), endRadius: w * p!, options: CGGradientDrawingOptions.drawsAfterEndLocation)
        
-        CGContextRestoreGState(currentContext)
+        currentContext!.restoreGState()
     }
 }
 

@@ -31,16 +31,16 @@ prefix func ^<T: BasicDataProtocol>(data: T) -> NSNumber{
     var value: NSNumber?
     
     //Int
-    if data is Int { value = NSNumber(integer: data as! Int)}
+    if data is Int { value = NSNumber(value: data as! Int)}
     
     //Float
-    if data is Float { value = NSNumber(float: data as! Float)}
+    if data is Float { value = NSNumber(value: data as! Float)}
     //CGFloat
-    if data is CGFloat { value = NSNumber(float: Float(data as! CGFloat))}
+    if data is CGFloat { value = NSNumber(value: Float(data as! CGFloat))}
     
     
     //Double
-    if data is Double { value = NSNumber(double: data as! Double)}
+    if data is Double { value = NSNumber(value: data as! Double)}
     
     return value!
 }
@@ -52,13 +52,13 @@ prefix func ^^<T: CGDataProtocol>(data: T) -> NSValue{
     var value: NSValue?
     
     //CGRect
-    if data is CGRect { value = NSValue(CGRect: data as! CGRect)}
+    if data is CGRect { value = NSValue(cgRect: data as! CGRect)}
     
     //CGSize
-    if data is CGSize { value = NSValue(CGSize: data as! CGSize)}
+    if data is CGSize { value = NSValue(cgSize: data as! CGSize)}
     
     //CGPoint
-    if data is CGPoint { value = NSValue(CGPoint: data as! CGPoint)}
+    if data is CGPoint { value = NSValue(cgPoint: data as! CGPoint)}
     
     return value!
 }

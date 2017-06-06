@@ -10,28 +10,16 @@ import Foundation
 
 extension Array{
     
-    /** Array 转 ArraySlice */
-    func slice(openOrClosedInterval: Range<Int>) -> ArraySlice<Element>{
-        
-        var range = openOrClosedInterval
-        
-        if openOrClosedInterval.isEmpty {
-            
-            var lenth = self.count
-        
-            range = Range(start: 0, end: lenth)
-        }
-        
-        return self[range];
-    }
     
     
     /** 仿OC遍历 */
-    func enumerate(itemClosure: (index: Int , value: Element)->Void){
+    func enumerate(itemClosure: (_ index: Int , _ value: Element)->Void){
         
-        for (var i=0;i<self.count;i++){
+        
+        
+        for i in 0 ..< self.count {
             
-            itemClosure(index: i, value: self[i])
+            itemClosure(i, self[i])
         }
     }
     

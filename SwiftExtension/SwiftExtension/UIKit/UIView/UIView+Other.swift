@@ -13,46 +13,46 @@ func degree(d: Double)->Double {return d * M_PI/180.0}
 
 extension UIView {
     
-    func rotate(duration: NSTimeInterval ,times: Float){
+    func rotate(duration: TimeInterval ,times: Float){
     
         let anim = CABasicAnimation(keyPath: "transform.rotation.z")
-        layer.anchorPoint=CGPointMake(0.5,0.5)
+        layer.anchorPoint=CGPoint(x: 0.5, y: 0.5)
         anim.duration = duration
         anim.repeatCount = times == 0 ? MAXFLOAT : times
         anim.fromValue = 0
         anim.toValue = M_PI * 2
-        layer.addAnimation(anim, forKey: "rotate")
+        layer.add(anim, forKey: "rotate")
     }
     
-    func zoomBounce(zoomMaxDuration zoomMaxDuration: NSTimeInterval, zx: CGFloat, zy: CGFloat, zoomNorDuration: NSTimeInterval, damping: CGFloat, velocity: CGFloat){
+    func zoomBounce(zoomMaxDuration zoomMaxDuration: TimeInterval, zx: CGFloat, zy: CGFloat, zoomNorDuration: TimeInterval, damping: CGFloat, velocity: CGFloat){
     
         self.layer.removeAllAnimations()
         
-        self.transform = CGAffineTransformIdentity
+        self.transform = CGAffineTransform.identity
         
-        UIView.animateWithDuration(zoomMaxDuration, animations: { () -> Void in
+        UIView.animate(withDuration: zoomMaxDuration, animations: { () -> Void in
             
-            self.transform = CGAffineTransformMakeScale(zx, zy)
+            self.transform = CGAffineTransform(scaleX: zx, y: zy)
             
         }) { (c) -> Void in
             
             if !c {return}
             
-            UIView.animateWithDuration(zoomNorDuration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: zoomNorDuration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
                 
-                self.transform = CGAffineTransformIdentity
+                self.transform = CGAffineTransform.identity
                 
             }, completion: nil)
         }
     }
     
-    func shake(duration: NSTimeInterval, values: [AnyObject]!){
+    func shake(duration: TimeInterval, values: [AnyObject]!){
     
         let anim = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-        layer.anchorPoint=CGPointMake(0.5,0.5)
+        layer.anchorPoint=CGPoint(x:0.5,y:0.5)
         anim.duration = duration
         anim.values = values
-        layer.addAnimation(anim, forKey: "rotate")
+        layer.add(anim, forKey: "rotate")
     }
 
 

@@ -19,7 +19,7 @@ extension NSString {
         
         let res = "\(self.doubleValue)".timeString_weiboStyle(format: "MM-dd") ?? "未知"
 
-        return res
+        return res as NSString
     }
 }
 
@@ -38,7 +38,7 @@ extension String{
         
         if time_Double == nil {return "未知"}
         
-        let minus: NSTimeInterval = NOW_TIME() - time_Double!
+        let minus: TimeInterval = NOW_TIME() - time_Double!
         
         if minus < 10 {time_str_temp = "刚刚"}
         else if minus >= 10 && minus < 60 { time_str_temp = "1分钟前"}
@@ -63,32 +63,32 @@ extension String{
     var length: Int {return self.characters.count}
     
     
-    /** 截取字符串 */
-    
-    /** 从index开始 */
-    func cfSubstringFromIndex(index: Int) -> String?{
-
-        if(index >= self.length) {return nil}
-        
-        let indexForStringDotIndex = self.startIndex.advancedBy(index)
-
-        return self.substringFromIndex(indexForStringDotIndex)
-    }
-
-    /** 用一个range截取 */
-    func cfSubstringWithRange(range: Range<Int>) -> String?{
-        
-        if(range.endIndex >= self.length) {return nil}
-        
-        let zeroIndexForStringDotIndex = self.startIndex
-        
-        let start = zeroIndexForStringDotIndex.advancedBy(range.startIndex)
-        let end = zeroIndexForStringDotIndex.advancedBy(range.endIndex)
-        
-        let rangeForStringDotIndex = Range(start: start, end: end)
-        
-        return self.substringWithRange(rangeForStringDotIndex)
-    }
+//    /** 截取字符串 */
+//    
+//    /** 从index开始 */
+//    func cfSubstringFromIndex(index: Int) -> String?{
+//
+//        if(index >= self.length) {return nil}
+//        self.index(after: <#T##String.Index#>)
+//        let indexForStringDotIndex = self.startIndex.advancedBy(index)
+//
+//        return self.cfSubstringFromIndex(index: indexForStringDotIndex)
+//    }
+//
+//    /** 用一个range截取 */
+//    func cfSubstringWithRange(range: Range<Int>) -> String?{
+//        
+//        if(range.upperBound >= self.length) {return nil}
+//        
+//        let zeroIndexForStringDotIndex = self.startIndex
+//        
+//        let start = zeroIndexForStringDotIndex.advancedBy(range.lowerBound)
+//        let end = zeroIndexForStringDotIndex.advancedBy(range.upperBound)
+//        
+//        let rangeForStringDotIndex = Range(start: start, end: end)
+//        
+//        return self.substringWithRange(rangeForStringDotIndex)
+//    }
     
     
     var isNotEmpty: Bool{return !self.isEmpty}
@@ -100,22 +100,22 @@ extension String{
         
         let date = NSDate(timeIntervalSince1970: Double(t))
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         
         formatter.dateFormat = format
         
-        return formatter.stringFromDate(date)
+        return formatter.string(from: date as Date)
     }
     
     
     /** 获取字符串的size */
     func sizeCal(maxWidth maxWidth: CGFloat!, font: UIFont)->CGSize {
         
-        let f = CGFloat.max
+        let f = CGFloat.greatestFiniteMagnitude
         
-        let size = CGSizeMake(maxWidth ?? f, f)
+        let size = CGSize(width: maxWidth ?? f,height: f)
     
-        return  (self as NSString).boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil).size
+        return  (self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil).size
     }
     
     

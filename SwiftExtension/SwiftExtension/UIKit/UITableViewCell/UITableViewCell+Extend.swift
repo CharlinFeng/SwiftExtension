@@ -17,12 +17,12 @@ class CFCell: UITableViewCell {
 
 extension CFCell{
     
-    static var rid: String {return stringFromClass(self)!}
+    static var rid: String {return stringFromClass(cls: self)!}
     
     /** 获取cell */
     class func reuseCell(tableview: UITableView) -> CFCell{
         
-        var cell = tableview.dequeueReusableCellWithIdentifier(rid) as? CFCell
+        var cell = tableview.dequeueReusableCell(withIdentifier: rid) as? CFCell
         
         if cell == nil {cell = self.viewInitWithNib() as? CFCell}
         

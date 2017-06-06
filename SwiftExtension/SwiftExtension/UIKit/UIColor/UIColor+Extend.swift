@@ -16,18 +16,21 @@ func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor{
 
 
 func hexColor(hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+
+    var cString:String = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines as CharacterSet).uppercased()
     
     if (cString.hasPrefix("#")) {
-        cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        
+        let secondCharIndex = cString.index(after: cString.startIndex)
+        cString = cString.substring(from: secondCharIndex)
     }
     
     if (cString.characters.count != 6) {
-        return UIColor.grayColor()
+        return UIColor.gray
     }
     
     var rgbValue:UInt32 = 0
-    NSScanner(string: cString).scanHexInt(&rgbValue)
+    Scanner(string: cString).scanHexInt32(&rgbValue)
     
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -38,7 +41,7 @@ func hexColor(hex:String) -> UIColor {
 }
 
 
-let WhiteColor = UIColor.whiteColor()
-let BlackColor = UIColor.blackColor()
-let ClearColor = UIColor.blackColor()
-let RedColor = UIColor.blackColor()
+let WhiteColor = UIColor.white
+let BlackColor = UIColor.black
+let ClearColor = UIColor.black
+let RedColor = UIColor.black

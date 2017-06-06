@@ -13,7 +13,7 @@ extension UIViewController {
 
     class func controllerInitWithNib()->UIViewController{
     
-        let str = stringFromClass(self)
+        let str = stringFromClass(cls: self)
         
         let vc = self.init(nibName: str, bundle: nil)
     
@@ -30,11 +30,11 @@ extension UIViewController {
     /** 添加dismiss按钮 */
     func addDismissBtn(){
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SwiftExtension.bundle/delete"), style: UIBarButtonItemStyle.Plain, target: self, action: "dismissAction")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SwiftExtension.bundle/delete"), style: UIBarButtonItemStyle.plain, target: self, action: "dismissAction")
     }
     
     func dismissAction(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

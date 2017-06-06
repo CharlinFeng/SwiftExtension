@@ -15,7 +15,7 @@ struct Screen {
     /**  bounds  */
     static var bounds: CGRect {
 
-        return UIScreen.mainScreen().bounds
+        return UIScreen.main.bounds
     }
     
     /**  size  */

@@ -11,7 +11,7 @@ import Foundation
 /** 获取对象内存地址 */
 func ObjectPointerAddress<T : AnyObject> ( obj : T ) -> String{
     
-    return NSString(format: "%p",unsafeBitCast(obj, Int.self)) as String
+    return NSString(format: "%p",unsafeBitCast(obj, to: Int.self)) as String
 }
 
 

@@ -18,17 +18,17 @@ extension UIImage {
         
         tintColor.setFill()
     
-        let bounds = CGRectMake(0, 0, self.size.width, self.size.height)
+        let bounds = CGRect(x:0, y: 0, width: self.size.width, height: self.size.height)
         
         UIRectFill(bounds)
         
-        self.drawInRect(bounds, blendMode: CGBlendMode.DestinationIn, alpha: 1.0)
+        self.draw(in: bounds, blendMode: CGBlendMode.destinationIn, alpha: 1.0)
         
         let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
-        return tintedImage
+        return tintedImage!
     }
     
     
@@ -36,23 +36,23 @@ extension UIImage {
     //给我一种颜色，一个尺寸，我给你返回一个UIImage
     class func imageBuildWithColor(color: UIColor, size: CGSize?, isRound: Bool) -> UIImage{
         
-        let imgSize = size ?? CGSizeMake(1, 1)
-    
-        let rect=CGRectMake(0, 0, imgSize.width, imgSize.height)
+        let imgSize = size ?? CGSize(width: 1, height: 1)
+        
+        let rect=CGRect(x: 0, y: 0, width: imgSize.width, height: imgSize.height)
         
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         
         let context=UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
+        context!.setFillColor(color.cgColor)
         
-        if isRound {CGContextFillEllipseInRect(context, rect)}else{CGContextFillRect(context, rect)}
+        if isRound {context!.fillEllipse(in: rect)}else{context!.fill(rect)}
         
         let image=UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
     
 }

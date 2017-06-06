@@ -11,14 +11,14 @@ import Foundation
 class  Execute {
     
     
-    class func execute(key: String, maxTimes: Int, action: (Void->Void)?){
+    class func execute(key: String, maxTimes: Int, action: ((Void)->Void)?){
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        let nowTimes = defaults.integerForKey(key)
+        let nowTimes = defaults.integer(forKey: key)
         
         if nowTimes >= maxTimes {return};
         
-        action?(); defaults.setInteger(nowTimes + 1, forKey: key)
+        action?(); defaults.set(nowTimes + 1, forKey: key)
     }
 }

@@ -44,7 +44,7 @@ extension UITextField{
         let models = modelsClosure()
     
         /** 数组遍历 */
-        for (_, model): (Int, TFCheckModel) in models.enumerate(){
+        for (_, model): (Int, TFCheckModel) in models.enumerated(){
             if model.textField.text!.isEmpty {errorMsg = model.desc; break}
         }
         
@@ -74,7 +74,7 @@ extension UITextField{
         if string.characters.elementsEqual("".characters) {
             
             if ((length - 2) % 5 == 0) {
-                self.text = (str! as NSString).substringToIndex(length - 1)
+                self.text = (str! as NSString).substring(to: length - 1)
             }
             
             return true;
@@ -100,7 +100,7 @@ extension UITextField{
     
     func setPlaceHolderString(str: String!) {
         var ph = str ?? self.placeholder
-        attributedPlaceholder = NSAttributedString(string: ph!, attributes: [NSForegroundColorAttributeName: UIColor.lightTextColor()])
+        attributedPlaceholder = NSAttributedString(string: ph!, attributes: [NSForegroundColorAttributeName: UIColor.lightText])
     }
 }
 

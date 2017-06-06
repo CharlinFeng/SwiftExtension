@@ -19,15 +19,15 @@ extension UITabBarController {
         
         /** 数组遍历 */
         for item: UITabBarItem in self.tabBar.items!{
-            item.image = item.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
-            item.setTitleTextAttributes([NSForegroundColorAttributeName:selectedColor], forState: UIControlState.Selected)
+            item.image = item.image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.white], for: UIControlState.normal)
+            item.setTitleTextAttributes([NSForegroundColorAttributeName:selectedColor], for: UIControlState.selected)
         }
         
         /** 设置图片颜色 */
         UITabBar.appearance().selectedImageTintColor = selectedColor
         
-        tabBar.barStyle = UIBarStyle.BlackOpaque
+        tabBar.barStyle = UIBarStyle.blackOpaque
     }
     
     

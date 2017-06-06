@@ -55,11 +55,11 @@ extension UIView{
         
         self.layer.borderWidth = width
         
-        self.layer.borderColor = color.CGColor
+        self.layer.borderColor = color.cgColor
     }
     
     class func viewInitWithNib() -> UIView{
-        return NSBundle.mainBundle().loadNibNamed(stringFromClass(self)!, owner: nil, options: nil).first as! UIView
+        return Bundle.main.loadNibNamed(stringFromClass(cls: self)!, owner: nil, options: nil)!.first as! UIView
     }
 
     func radius(r: CGFloat){
@@ -68,7 +68,7 @@ extension UIView{
     }
     
     func debug(){
-        border(width: 2, color: UIColor.redColor())
+        border(width: 2, color: UIColor.red)
     }
     
 }

@@ -12,12 +12,12 @@ import Foundation
 extension Dictionary{
     
     /** 仿OC遍历 */
-    func enumerate(itemClosure: (index: Int, key: Key, value: Value)->Void){
+    func enumerate(itemClosure: (_ index: Int, _ key: Key, _ value: Value)->Void){
         
         var i = 0
         for (key,value) in self{
-            itemClosure(index:i,key: key, value: value)
-            i++
+            itemClosure(i,key, value)
+            i += 1
         }
     }
 

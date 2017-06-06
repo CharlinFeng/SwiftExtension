@@ -14,28 +14,28 @@ extension UIButton{
     /** 设置tintColor */
     func setImageTintColor(tintColor: UIColor, state: UIControlState){
         
-        let tintImage = self.imageForState(UIControlState.Normal)?.imageWithTintColor(tintColor)
+        let tintImage = self.image(for: UIControlState.normal)?.imageWithTintColor(tintColor: tintColor)
         
-        self.setImage(tintImage, forState: state)
+        self.setImage(tintImage, for: state)
     }
     
     
     var titleForNormal: String! {
         
-        set{setTitle(newValue, forState: UIControlState.Normal)}
-        get{return titleForState(UIControlState.Normal)}
+        set{setTitle(newValue, for: UIControlState.normal)}
+        get{return title(for: UIControlState.normal)}
     }
     
     var titleForHighlighted: String! {
         
-        set{setTitle(newValue, forState: UIControlState.Highlighted)}
-        get{return titleForState(UIControlState.Highlighted)}
+        set{setTitle(newValue, for: UIControlState.highlighted)}
+        get{return title(for: UIControlState.highlighted)}
     }
     
     var titleForDisabled: String! {
         
-        set{setTitle(newValue, forState: UIControlState.Disabled)}
-        get{return titleForState(UIControlState.Disabled)}
+        set{setTitle(newValue, for: UIControlState.disabled)}
+        get{return title(for: UIControlState.disabled)}
     }
     
     
